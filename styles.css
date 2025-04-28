@@ -1,0 +1,75 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  background: #faf9f2;
+  font-family: sans-serif;
+  color: #333;
+}
+
+/* Header + nav layout */
+.site-header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.site-title {
+  font-size: 2rem;
+  /* we’ll swap this to a serif later */
+}
+.site-nav ul {
+  list-style: none;
+  display: inline-flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+.site-nav a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+.site-nav .active a {
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.25rem;
+}
+
+/* Hero layout */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 1rem;
+}
+
+/* Placeholder boxes for our florals */
+.floral {
+  width: 300px;
+  height: 200px;
+  background: #ddd;
+}
+.floral--left  { /* later: background-image: url(...left-floral.png) */ }
+.floral--right { /* later: background-image: url(...right-floral.png) */ }
+
+/* Center circle for names */
+.circle-text {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #faf9f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.4;
+  font-size: 1.25rem;
+}
+.circle-text .and {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #555;
+}
