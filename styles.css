@@ -1,75 +1,136 @@
-/* Reset & base */
+/* ─── Reset & Base ─────────────────────────────────────────────────────────── */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	font-family: monospace;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.fancy {
+	/* font-family: "Dancing Script", cursive; */
+	font-family: "Cormorant Upright", serif;
+  	font-weight: 400;
+ 	font-style: normal;
 }
 body {
-  min-height: 100vh;
-  background: #faf9f2;
-  font-family: sans-serif;
-  color: #333;
+	min-height: 100vh;
+	background-color: #FAF9F6;
+	color: #2b2b2b;
+	font-size: 16px;
 }
 
-/* Header + nav layout */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+p {
+	line-height: 1.5;
+	margin-bottom: 1rem;
+}
+
+/* ─── Header & Nav ────────────────────────────────────────────────────────── */
 .site-header {
-  text-align: center;
-  padding: 2rem 1rem;
+	text-align: center;
+	padding: 2rem 1rem 2rem;
 }
+
 .site-title {
-  font-size: 2rem;
-  /* we’ll swap this to a serif later */
+	font-size: 42px;
+	font-weight: 400;
+	color: #2b2b2b;
+	margin-bottom: 10px;
 }
+
 .site-nav ul {
-  list-style: none;
-  display: inline-flex;
-  gap: 2rem;
-  margin-top: 0.5rem;
+	list-style: none;
+	display: inline-flex;
+	gap: 2rem;
+	margin-top: 1rem;
 }
+
 .site-nav a {
-  text-decoration: none;
-  color: inherit;
-  font-size: 1rem;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	padding: 10px 1px 7px;
 }
+
 .site-nav .active a {
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.25rem;
+	font-weight: 500;
+	border-bottom: 3px solid #2b2b2b;
 }
 
-/* Hero layout */
+/* ─── Hero Layout ─────────────────────────────────────────────────────────── */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  padding: 4rem 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 4rem 1rem;
+	overflow: hidden;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
-/* Placeholder boxes for our florals */
+/* Floral graphics (place your PNG/SVG in assets/) */
 .floral {
-  width: 300px;
-  height: 200px;
-  background: #ddd;
+	flex-shrink: 0;
+	width: 600px;
+	aspect-ratio: 1;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 1;
 }
-.floral--left  { /* later: background-image: url(...left-floral.png) */ }
-.floral--right { /* later: background-image: url(...right-floral.png) */ }
 
-/* Center circle for names */
-.circle-text {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: #faf9f2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.4;
-  font-size: 1.25rem;
+.floral--left {
+	background-image: url('img/flora1.png');
+	margin-right: -120px;
+	/* tuck behind the circle */
 }
-.circle-text .and {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  color: #555;
+
+.floral--right {
+	background-image: url('img/flora2.png');
+	margin-left: -120px;
+}
+
+/* Center circle + text */
+.circle-text {
+	width: 360px;
+	height: 360px;
+	background-color: #faf9f2;
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	z-index: 2;
+}
+
+.name {
+	font-size: 56px;
+	line-height: 1.2;
+	color: #2b2b2b;
+}
+
+.name--first {
+	margin-bottom: 0.5rem;
+}
+
+.name--last {
+	margin-top: 0.5rem;
+}
+
+.and {
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	color: #555;
+	margin: 0.25rem 0;
+}
+
+main {
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	margin: 0 auto;
+	padding: 4rem 1rem;
 }

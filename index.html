@@ -1,34 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Michael &amp; Aleah</title>
-  <link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Michael &amp; Aleah</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+
+	<!-- Your styles -->
+	<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <!-- Header + Navigation -->
-  <header class="site-header">
-    <h1 class="site-title">Michael &amp; Aleah</h1>
-    <nav class="site-nav">
-      <ul>
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Registry</a></li>
-      </ul>
-    </nav>
-  </header>
+	<!-- Header + Navigation -->
+	<header class="site-header">
+		<h1 class="site-title fancy">Michael &amp; Aleah</h1>
+		<nav class="site-nav">
+			<ul>
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="https://www.amazon.com/wedding/registry/1JIYJTBMQR67R">Registry</a></li>
+			</ul>
+		</nav>
+	</header>
 
-  <!-- Hero area: left graphic, center circle, right graphic -->
-  <main class="hero">
-    <div class="floral floral--left"></div>
-    <div class="circle-text">
-      <p>Michael<br>Becker</p>
-      <span class="and">and</span>
-      <p>Aleah<br>Clyde</p>
-    </div>
-    <div class="floral floral--right"></div>
-  </main>
+	<!-- Hero section -->
+	<main class="hero">
+		<div class="floral floral--left"></div>
+		<div class="circle-text">
+			<p class="name name--first fancy">Michael<br>Becker</p>
+			<span class="and">and</span>
+			<p class="name name--last fancy">Aleah<br>Clyde</p>
+		</div>
+		<div class="floral floral--right"></div>
+	</main>
+
+	<main>
+		<p class="fancy" style="font-size: 40px;">September 5, 2025</p>
+		<p id="countdown" style="font-size: 17px;">. . .</p>
+	</main>
+
+	<main>
+		<img src="img/flora3.png" alt="" style="width: 500px;">
+	</main>
+
+	<script>
+function countdown(targetDate) {
+	const targetTime = new Date(targetDate).getTime();
+
+	let myCountdownFunc = () => {
+		const now = new Date().getTime();
+		const timeLeft = targetTime - now;
+
+		if (timeLeft <= 0) {
+			clearInterval(interval);
+			document.getElementById("countdown").innerHTML = "Expired";
+			return;
+		}
+
+		const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+		const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+		const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+		document.getElementById("countdown").innerHTML = `${days} days &ensp; ${hours} hours &ensp; ${minutes} minutes &ensp; ${seconds} seconds`;
+	}
+	const interval = setInterval(myCountdownFunc, 1000);
+	myCountdownFunc();
+}
+countdown("September 05, 2025 13:00:00");
+	</script>
 
 </body>
+
 </html>
