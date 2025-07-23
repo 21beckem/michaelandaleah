@@ -5,17 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Michael & Aleah</title>
 	<style>
+:root {
+	--pattern-fade: #273f3f40;
+}
 html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	overflow: hidden;
 }
 body {
-	background-color: white;
-	background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url('img/background.png') no-repeat center center fixed;
-	background-size: cover;
+	background-color: #273f3f;
+	background-image: linear-gradient(var(--pattern-fade), var(--pattern-fade)), url('img/flower-pattern.webp');
 	color: white;
 	font-size: 16px;
 	display: flex;
@@ -25,12 +26,14 @@ body {
 }
 .container {
 	max-width: 800px;
-	width: 100%;
+	width: calc(100% - 4rem);
 	margin: 0 auto;
 	padding: 2rem 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	height: 100%;
+    justify-content: space-around;
 }
 .hero-title {
 	font-size: 4.5rem;
@@ -41,6 +44,13 @@ body {
 	gap: 1rem;
 	justify-content: space-between;
 	width: 100%;
+}
+vr {
+	display: block;
+	width: 2px;
+	height: 100%;
+	background-color: white;
+	margin: 0 4rem;
 }
 .event-card {
 	display: flex;
@@ -63,8 +73,8 @@ body {
 .btn-registry {
 	display: flex;
 	align-items: center;
-	background-color: #F0F3E3;
-	color: #000;
+	color: #ffd6e3;
+	border: 2px solid #ffd6e3;
 	padding: 1.25rem 2rem;
 	border-radius: .75rem;
 	font-size: 2rem;
@@ -75,6 +85,35 @@ body {
 .btn-registry img {
 	width: 50px;
 	margin-right: 0.5rem;
+	filter: invert(79%) sepia(4%) saturate(1604%) hue-rotate(297deg) brightness(105%) contrast(116%);
+}
+@media (max-width: 600px) {
+	.hero-title {
+		font-size: 2rem;
+	}
+	.events {
+		flex-direction: column;
+	}
+	.event-card {
+		margin-top: 1rem;
+		flex-direction: column;
+		align-items: center;
+	}
+	.event-card img {
+		width: 80px;
+		margin-right: 0;
+	}
+	.event-card h2 {
+		font-size: 1.5rem;
+	}
+	.event-card p {
+		margin-top: 0;
+		font-size: 1rem;
+	}
+	.btn-registry {
+		font-size: 1.5rem;
+		margin-top: 1.5rem;
+	}
 }
 	</style>
 </head>
@@ -90,21 +129,22 @@ body {
 					<h2>Wisconsin Reception</h2>
 					<p><strong>August 23, 2025</strong></p>
 					<p>10am &ndash; 12pm</p>
-					<p>735 Woatiel Rd<br>Brookfield, WI 53005</p>
+					<p>755 Woelfel Rd<br>Brookfield, WI 53045</p>
 				</event-details>
 			</div>
+			<vr></vr>
 			<div class="event-card">
 				<img src="img/ID.png" alt="">
 				<event-details>
 					<h2>Idaho Open House</h2>
-					<p><strong>September 25, 2025</strong></p>
+					<p><strong>September 20, 2025</strong></p>
 					<p>6pm &ndash; 9pm</p>
-					<p>258 Hallmark Dr.<br>Idaho Falls, ID</p>
+					<p>442 Hallmark Dr<br>Idaho Falls, ID</p>
 				</event-details>
 			</div>
 		</div>
 
-		<a href="#registry" class="btn-registry">
+		<a href="https://www.amazon.com/wedding/registry/1JIYJTBMQR67R" target="_blank" class="btn-registry">
 			<img src="img/gift.png" alt="">
 			Amazon Registry
 		</a>
