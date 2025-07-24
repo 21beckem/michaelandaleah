@@ -13,6 +13,7 @@ html, body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
 body {
 	background-color: #273f3f;
@@ -87,6 +88,50 @@ vr {
 	margin-right: 0.5rem;
 	filter: invert(79%) sepia(4%) saturate(1604%) hue-rotate(297deg) brightness(105%) contrast(116%);
 }
+.pics-on-sides-container {
+	pointer-events: none;
+	position: fixed;
+	--vertical-padding: 40px;
+	--horizontal-padding: 50px;
+	top: calc(-1 * var(--vertical-padding));
+	left: calc(-1 * var(--horizontal-padding));
+	height: calc(100vh + calc(var(--vertical-padding) * 2) );
+	width: calc(100vw + calc(var(--horizontal-padding) * 2) );
+	display: flex;
+	justify-content: space-between;
+}
+.pics-on-sides-container > div {
+	height: 100%;
+	width: 260px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.pics-on-sides-container > div > div {
+	background-color: white;
+	padding: 20px;
+	width: 100%;
+	aspect-ratio: 0.9;
+	z-index: 999;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.pics-on-sides-container > div > div > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.pics-on-sides-container > div:last-child > div:nth-child(1) { transform: scale(1.2) rotate(-5deg); }
+.pics-on-sides-container > div:last-child > div:nth-child(2) { transform: scale(1.2) rotate(5deg); }
+.pics-on-sides-container > div:last-child > div:nth-child(3) { transform: scale(1.2) rotate(-7deg); }
+
+.pics-on-sides-container > div:first-child > div:nth-child(1) { transform: scale(1.2) rotate(5deg); }
+.pics-on-sides-container > div:first-child > div:nth-child(2) { transform: scale(1.2) rotate(-5deg); }
+.pics-on-sides-container > div:first-child > div:nth-child(3) { transform: scale(1.2) rotate(7deg); }
+@media (max-width: 1250px) {
+	.pics-on-sides-container {
+		display: none;
+	}
+}
 @media (max-width: 600px) {
 	.hero-title {
 		font-size: 2rem;
@@ -119,6 +164,18 @@ vr {
 </head>
 
 <body>
+	<div class="pics-on-sides-container">
+		<div>
+			<div><img src="img/46-DSC_2629.jpg" alt=""></div>
+			<div><img src="img/12-DSC_2232.jpg" alt=""></div>
+			<div><img src="img/36-DSC_2523.jpg" alt=""></div>
+		</div>
+		<div>
+			<div><img src="img/background.png" alt=""></div>
+			<div><img src="img/background.png" alt=""></div>
+			<div><img src="img/background.png" alt=""></div>
+		</div>
+	</div>
 	<div class="container">
 		<h1 class="hero-title">Michael & Aleah</h1>
 
