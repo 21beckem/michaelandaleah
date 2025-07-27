@@ -29,7 +29,7 @@ body {
 	max-width: 800px;
 	width: calc(100% - 4rem);
 	margin: 0 auto;
-	padding: 2rem 1rem;
+	padding: 2rem 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -45,6 +45,7 @@ body {
 	gap: 1rem;
 	justify-content: space-between;
 	width: 100%;
+	transform: translateX(-10px);
 }
 vr {
 	display: block;
@@ -66,35 +67,64 @@ vr {
 	width: calc(100% + 20px);
 	transform: translateX(-20px);
 	margin-bottom: 0.5rem;
+	text-align: center;
 }
 .event-card p {
 	font-size: 1.25rem;
 	margin-bottom: 0.25rem;
 }
-.btn-registry {
+.bottom-btns a {
+	position: relative;
 	display: flex;
+	flex: 1;
 	align-items: center;
 	color: #ffd6e3;
 	border: 2px solid #ffd6e3;
-	padding: 1.25rem 2rem;
+	padding: 1.7rem 2rem;
 	border-radius: .75rem;
 	font-size: 2rem;
 	font-weight: bold;
 	text-decoration: none;
-	margin-top: 5rem;
 }
-.btn-registry:hover {
+.bottom-btns a span {
+	text-align: center;
+	width: 100%;
+}
+.btn-registry::before {
+	content: "Click here to view our";
+	display: block;
+	position: absolute;
+	top: 10px;
+	width: calc(100% - 4rem - 50px);
+	right: 2rem;
+	font-size: 15px;
+	text-align: center;
+}
+.btn-registry::after {
+	content: url("img/amazon-arrow.svg");
+	display: block;
+	position: absolute;
+	bottom: 1px;
+	width: 70px;
+	left: calc(50% + 2rem);
+	transform: translateX(-50%);
+	filter: invert(79%) sepia(4%) saturate(1604%) hue-rotate(297deg) brightness(105%) contrast(116%);
+}
+.bottom-btns a:hover::after {
+	filter: brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(651%) hue-rotate(84deg) brightness(95%) contrast(89%);
+}
+.bottom-btns a:hover {
 	border-color: #2e4b36;
 	color: #2e4b36;
 	background-color: #ffd6e3;
 }
-.btn-registry img {
+.bottom-btns a img {
 	width: 50px;
 	margin-right: 0.5rem;
 	filter: invert(79%) sepia(4%) saturate(1604%) hue-rotate(297deg) brightness(105%) contrast(116%);
 }
-.btn-registry:hover img {
-	filter: none;
+.bottom-btns a:hover img {
+	filter: brightness(0) saturate(100%) invert(23%) sepia(24%) saturate(651%) hue-rotate(84deg) brightness(95%) contrast(89%);
 }
 .pics-on-sides-container {
 	pointer-events: none;
@@ -137,12 +167,43 @@ vr {
 .pics-on-sides-container > div:first-child > div:nth-child(1) { transform: scale(1.2) rotate(5deg); }
 .pics-on-sides-container > div:first-child > div:nth-child(2) { transform: scale(1.2) rotate(-5deg); }
 .pics-on-sides-container > div:first-child > div:nth-child(3) { transform: scale(1.2) rotate(7deg); }
+
+.bottom-btns {
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+	margin-top: 5rem;
+	width: calc(100% - 2rem);
+}
+.btn-rsvp::before {
+	content: "Click here to";
+	display: block;
+	position: absolute;
+	top: 10px;
+	width: calc(100% - 4rem - 50px);
+	right: 2rem;
+	font-size: 15px;
+	text-align: center;
+}
+.btn-rsvp::after {
+	content: "to one of our receptions";
+	display: block;
+	position: absolute;
+	bottom: 10px;
+	width: calc(100% - 4rem - 50px);
+	right: 2rem;
+	font-size: 15px;
+	text-align: center;
+}
 @media (max-width: 1250px) {
 	.pics-on-sides-container {
 		display: none;
 	}
 }
 @media (max-width: 600px) {
+	html, body {
+		overflow: auto;
+	}
 	.hero-title {
 		font-size: 2rem;
 	}
@@ -165,9 +226,18 @@ vr {
 		margin-top: 0;
 		font-size: 1rem;
 	}
-	.btn-registry {
-		font-size: 1.5rem;
+	.bottom-btns {
 		margin-top: 1.5rem;
+		padding-bottom: 2rem;
+		gap: 1.5rem;
+		flex-direction: column;
+	}
+	.bottom-btns a {
+		font-size: 1.4rem;
+        padding: 1rem 0.7rem;
+	}
+	.bottom-btns a::before, .bottom-btns a::after {
+		font-size: 13px;
 	}
 }
 	</style>
@@ -175,14 +245,14 @@ vr {
 
 <body>
 	<div class="pics-on-sides-container">
-		<div>
+		<div style="transform: translateX(-20px);">
 			<div><img src="img/46-DSC_2629.jpg" alt=""></div>
 			<div><img src="img/12-DSC_2232.jpg" alt=""></div>
 			<div><img src="img/36-DSC_2523.jpg" alt=""></div>
 		</div>
-		<div>
-			<div><img src="img/1-DSC_2324.jpg" alt=""></div>
+		<div style="transform: translateX(-10px);">
 			<div><img src="img/53-DSC_2661.jpg" alt=""></div>
+			<div><img src="img/1-DSC_2324.jpg" alt=""></div>
 			<div><img src="img/59-DSC_2699.jpg" alt=""></div>
 		</div>
 	</div>
@@ -211,10 +281,16 @@ vr {
 			</div>
 		</div>
 
-		<a href="https://www.amazon.com/wedding/registry/1JIYJTBMQR67R" target="_blank" class="btn-registry">
-			<img src="img/gift.png" alt="">
-			Amazon Registry
-		</a>
+		<div class="bottom-btns">
+			<a href="https://www.amazon.com/wedding/registry/1JIYJTBMQR67R" target="_blank" class="btn-registry">
+				<img src="img/gift.png" alt="">
+				<span>Amazon Registry</span>
+			</a>
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLSevpfve3iOov1tDcNC2vX4lULCf_vKZQMB7tc8xlnoWLnGl9A/viewform?usp=preview" target="_blank" class="btn-rsvp">
+				<img src="img/rsvp-icon.svg" alt="">
+				<span>RSVP</span>
+			</a>
+		</div>
 	</div>
 </body>
 
