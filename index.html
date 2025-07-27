@@ -16,7 +16,7 @@ html, body {
 	overflow: hidden;
 }
 body {
-	background-color: #273f3f;
+	background-color: #2e4b36;
 	background-image: linear-gradient(var(--pattern-fade), var(--pattern-fade)), url('img/flower-pattern.webp');
 	color: white;
 	font-size: 16px;
@@ -83,16 +83,24 @@ vr {
 	text-decoration: none;
 	margin-top: 5rem;
 }
+.btn-registry:hover {
+	border-color: #2e4b36;
+	color: #2e4b36;
+	background-color: #ffd6e3;
+}
 .btn-registry img {
 	width: 50px;
 	margin-right: 0.5rem;
 	filter: invert(79%) sepia(4%) saturate(1604%) hue-rotate(297deg) brightness(105%) contrast(116%);
 }
+.btn-registry:hover img {
+	filter: none;
+}
 .pics-on-sides-container {
 	pointer-events: none;
 	position: fixed;
 	--vertical-padding: 40px;
-	--horizontal-padding: 50px;
+	--horizontal-padding: 40px;
 	top: calc(-1 * var(--vertical-padding));
 	left: calc(-1 * var(--horizontal-padding));
 	height: calc(100vh + calc(var(--vertical-padding) * 2) );
@@ -114,11 +122,13 @@ vr {
 	aspect-ratio: 0.9;
 	z-index: 999;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	overflow: hidden;
 }
 .pics-on-sides-container > div > div > img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	object-position: top;
 }
 .pics-on-sides-container > div:last-child > div:nth-child(1) { transform: scale(1.2) rotate(-5deg); }
 .pics-on-sides-container > div:last-child > div:nth-child(2) { transform: scale(1.2) rotate(5deg); }
@@ -171,9 +181,9 @@ vr {
 			<div><img src="img/36-DSC_2523.jpg" alt=""></div>
 		</div>
 		<div>
-			<div><img src="img/background.png" alt=""></div>
-			<div><img src="img/background.png" alt=""></div>
-			<div><img src="img/background.png" alt=""></div>
+			<div><img src="img/1-DSC_2324.jpg" alt=""></div>
+			<div><img src="img/53-DSC_2661.jpg" alt=""></div>
+			<div><img src="img/59-DSC_2699.jpg" alt=""></div>
 		</div>
 	</div>
 	<div class="container">
